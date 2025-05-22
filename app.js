@@ -143,7 +143,7 @@ app.post('/webhook', async (req, res) => {
             phone_number_id,
             user_name
           )
-        } else if(req.body.entry[0].changes[0].value.messages[0].interactive?.button_reply){
+        } else if(req.body.entry[0].changes[0].value.messages[0].interactive?.button_reply.id){
           await interact(
             user_id,
             {
@@ -162,17 +162,16 @@ app.post('/webhook', async (req, res) => {
             phone_number_id,
             user_name
           )
-      }
-            else{
-          
         }
+        else{}
+      }
     }
     res.status(200).json({ message: 'ok' })
   } else {
     // Return a '404 Not Found' if event is not from a WhatsApp API
     res.status(400).json({ message: 'error | unexpected body' })
   }
-}
+})
 
 // Accepts GET requests at the /webhook endpoint. You need this URL to setup webhook initially.
 // info on verification request payload: https://developers.facebook.com/docs/graph-api/webhooks/getting-started#verification-requests
