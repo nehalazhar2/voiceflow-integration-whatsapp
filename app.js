@@ -172,7 +172,7 @@ app.post('/webhook', async (req, res) => {
     // Return a '404 Not Found' if event is not from a WhatsApp API
     res.status(400).json({ message: 'error | unexpected body' })
   }
-})
+}
 
 // Accepts GET requests at the /webhook endpoint. You need this URL to setup webhook initially.
 // info on verification request payload: https://developers.facebook.com/docs/graph-api/webhooks/getting-started#verification-requests
